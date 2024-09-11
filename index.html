@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع التصميم الداخلي</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+        }
+        .navbar-brand img {
+            max-height: 50px;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            transition: color 0.3s, background 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #f4f4f4;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3e%3cpath stroke="%23fff" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/%3e%3c/svg%3e');
+        }
+        .navbar-toggler:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-background:nth-child(1) {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            z-index: 3;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background-color: #ff6f61;
+            border-color: #ff6f61;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65c50;
+            border-color: #e65c50;
+        }
+
+        /* Menu Styles */
+        .menu {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+        }
+        .menu .nav-link {
+            color: #fff;
+            padding: 10px;
+            transition: color 0.3s, background 0.3s;
+        }
+        .menu .nav-link:hover {
+            color: #f4f4f4;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+        .navbar-toggler {
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar-toggler:hover {
+            background-color: #555;
+        }
+
+        /* Projects Section */
+        .projects-section .item img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Request Section */
+        .request-section {
+            background: #f9f9f9;
+            padding: 40px 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 40px 0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Custom Swiper Styles */
+        .swiper-container {
+            position: relative;
+        }
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .swiper-pagination-bullet {
+            background-color: #999 !important;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #333 !important;
+        }
+        /* مشريعنا*/
+        .section-title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #333;
+            letter-spacing: 2px;
+        }
+        .swiper-container {
+    width: 90%;
+    height: 300PX;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%; /* فراغ بنسبة 5% على الجانبين */
+    position: relative; /* مهم لضبط موقع النقاط بشكل صحيح */
+    overflow: hidden; /* لتجنب ظهور أي محتوى زائد */
+    margin-bottom: 50px; /* تأكيد المسافة بين السلايدر والعناصر التالية */
+}
+        .swiper-slide {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%; /* تعديل الارتفاع هنا */
+            object-fit: cover;
+        }
+        .slide-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+       /* النمط الأساسي للنقاط */
+       .swiper-pagination {
+    position: relative; /* لتكون النقاط أسفل السلايدر */
+    bottom: 0; /* صفر لعدم وجود مسافة إضافية */
+    width: 100%;
+    text-align: center;
+    margin-top: 100px; /* المسافة بين النقاط والسلايدر */
+    z-index: 10; /* تأكيد ظهور النقاط فوق العناصر الأخرى */
+}
+
+.swiper-pagination-bullet {
+    background-color: #999 !important; /* لون النقطة غير النشطة */
+    width: 12px; /* حجم النقطة */
+    height: 12px; /* حجم النقطة */
+    border-radius: 50%; /* جعل النقطة دائرية */
+    margin: 0 4px; /* المسافة بين النقاط */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #333 !important; /* لون النقطة النشطة */
+}  
+        /* إخفاء أزرار التنقل */
+        .swiper-button-next, .swiper-button-prev {
+            display: none; /* إخفاء أزرار التنقل */
+        }
+
+   /* عن الشركه      */
+   /* About Section */
+.about-section {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.about-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222;
+}
+
+.about-section h3 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #555;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Services Section */
+#services {
+    padding: 50px 10%;
+    background-color: #fff;
+    text-align: center; /* توسيط النص */
+}
+
+#services h2 {
+    font-size: 36px; /* حجم الخط الكبير */
+    color: #333;
+    margin-bottom: 40px; /* مساحة أسفل العنوان */
+    font-weight: bold;
+}
+
+/* Container for the service boxes */
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* توسيط العناصر */
+    gap: 20px; /* المسافة بين الصناديق */
+}
+
+.service-box {
+    width: 100%;
+    max-width: 350px; /* تحديد الحد الأقصى لعرض الصناديق */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* توسيط العناصر أفقياً */
+    text-align: center; /* توسيط النص داخل الصندوق */
+}
+
+.service-box i {
+    font-size: 40px;
+    color: #c49f5d;
+    margin-bottom: 15px; /* مساحة أسفل الأيقونة */
+}
+
+.service-box h3 {
+    font-size: 24px;
+    margin-bottom: 15px; /* مساحة أسفل العنوان */
+    color: #333;
+}
+
+.service-box p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5; /* تحسين التباعد بين الأسطر */
+}
+
+.service-box:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .service-container {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-box {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box i {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-box h3 {
+        font-size: 20px;
+    }
+
+    .service-box p {
+        font-size: 14px;
+    }
+
+    .service-box i {
+        font-size: 35px;
+    }
+}
+/*   صفحه طلب التصميم*/
+/* تنسيق لقسم طلب التصميم */
+.request {
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.request h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group button {
+    background-color: #c49f5d;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #a07a45;
+}
+
+.form-text {
+    font-size: 14px;
+    color: #666;
+}
+
+#form-response {
+    text-align: center;
+    font-size: 18px;
+    color: #28a745; /* أخضر للنجاح */
+}
+
+#error-response {
+    color: #dc3545; /* أحمر للخطأ */
+}
+
+/* Contact Section Styles */
+#contact {
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.map-container {
+    margin-bottom: 30px;
+}
+
+.map-container iframe {
+    border: none;
+    border-radius: 8px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social-links .social-link {
+    font-size: 24px;
+    color: #333;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links .social-link:hover {
+    color: #2d00f7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact {
+        padding: 20px 5%;
+    }
+
+    .map-container iframe {
+        height: 200px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"><img src="./Image/رؤية.png" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">الرئيسية</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">عن الشركة</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">مشاريعنا</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">خدماتنا</a></li>
+            <li class="nav-item"><a class="nav-link" href="#request">طلب التصميم</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+    <!-- خلفيات السلايدر -->
+    <div class="hero-background" id="background1" style="background-image: url('./Image/background 1 (1).jpg');"></div>
+    <div class="hero-background" id="background2" style="background-image: url('./Image/background 2 (2).jpg');"></div>
+    <div class="hero-background" id="background3" style="background-image: url('./Image/background 3 (3).jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h2 data-aos="fade-up">مرحبا بك في موقعنا</h2>
+        <p data-aos="fade-up" data-aos-delay="200">نقدم لك أفضل خدمات التصميم الداخلي لتحويل أفكارك إلى حقيقة.</p>
+        <a href="#request" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">ابدأ الآن</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>عن الشركة</h2>
+        <p>شركة XYZ هي رائدة في مجال التصميم الداخلي، نقدم حلولاً متميزة للمساحات السكنية والتجارية. تأسست شركتنا في عام 2005 ونفخر بخبرة تزيد عن 20 عاماً في تقديم تصاميم مبتكرة وعملية.</p>
+        <h3>رؤيتنا</h3>
+        <p>نسعى لتحويل الأفكار إلى واقع، من خلال توفير تصاميم تجمع بين الجمالية والوظيفية. نحن ملتزمون بتقديم أفضل جودة وخدمة عملاء ممتازة لضمان رضا عملائنا التام.</p>
+        <h3>قيمنا</h3>
+        <ul>
+            <li>الابتكار: نبحث دائماً عن طرق جديدة ومبتكرة لتلبية احتياجات عملائنا.</li>
+            <li>الجودة: نستخدم مواد وخامات ذات جودة عالية لضمان استدامة التصاميم.</li>
+            <li>الاحترافية: نقدم خدماتنا بكل احترافية ونلتزم بالمواعيد النهائية.</li>
+        </ul>
+        <h3>خدماتنا</h3>
+        <p>نقدم مجموعة متنوعة من الخدمات تشمل تصميم المساحات الداخلية، استشارات التصميم، وتجديد المساحات. فريقنا من الخبراء مستعد لتلبية كافة احتياجاتك وتحقيق رؤيتك.</p>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<h2 class="section-title">مشاريعنا</h2>
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- 12 Divs -->
+        <a href="details1.html" class="swiper-slide">
+            <img src="./Image/background 1 (1).jpg" alt="مشروع 1">
+            <div class="slide-title">مشروع 1</div>
+        </a>
+        <a href="details2.html" class="swiper-slide">
+            <img src="./Image/background 2 (2).jpg" alt="مشروع 2">
+            <div class="slide-title">مشروع 2</div>
+        </a>
+        <a href="details3.html" class="swiper-slide">
+            <img src="./Image/background 3 (3).jpg" alt="مشروع 3">
+            <div class="slide-title">مشروع 3</div>
+        </a>
+        <a href="details4.html" class="swiper-slide">
+            <img src="./Image/background 1 (1).jpg" alt="مشروع 4">
+            <div class="slide-title">مشروع 4</div>
+        </a>
+        <a href="details5.html" class="swiper-slide">
+            <img src="./Image/background 2 (2).jpg" alt="مشروع 5">
+            <div class="slide-title">مشروع 5</div>
+        </a>
+        <a href="details6.html" class="swiper-slide">
+            <img src="./Image/background 3 (3).jpg" alt="مشروع 6">
+            <div class="slide-title">مشروع 6</div>
+        </a>
+        <a href="details7.html" class="swiper-slide">
+            <img src="./Image/background 1 (1).jpg" alt="مشروع 7">
+            <div class="slide-title">مشروع 7</div>
+        </a>
+        <a href="details8.html" class="swiper-slide">
+            <img src="./Image/background 2 (2).jpg" alt="مشروع 8">
+            <div class="slide-title">مشروع 8</div>
+        </a>
+        <a href="details9.html" class="swiper-slide">
+            <img src="./Image/background 3 (3).jpg" alt="مشروع 9">
+            <div class="slide-title">مشروع 9</div>
+        </a>
+        <a href="details10.html" class="swiper-slide">
+            <img src="./Image/background 1 (1).jpg" alt="مشروع 10">
+            <div class="slide-title">مشروع 10</div>
+        </a>
+        <a href="details11.html" class="swiper-slide">
+            <img src="./Image/background 2 (2).jpg" alt="مشروع 11">
+            <div class="slide-title">مشروع 11</div>
+        </a>
+        <a href="details12.html" class="swiper-slide">
+            <img src="./Image/background 3 (3).jpg" alt="مشروع 12">
+            <div class="slide-title">مشروع 12</div>
+        </a>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<!-- Services Section -->
+<section id="services">
+    <h2>خدماتنا</h2>
+    <div class="service-container">
+        <div class="service-box">
+            <i class="fas fa-ruler-combined"></i>
+            <h3>تصميم</h3>
+            <p>نقدم حلول التصميم الداخلي المبتكرة والشاملة، التي تتناسب مع احتياجات العملاء سواء كانوا يسعون إلى تصميم مساحات سكنية، تجارية، أو مكتبية. فريقنا المتخصص يعمل على تحويل الأفكار إلى واقع ملموس، مع ضمان تحقيق أعلى مستويات الجودة والراحة. نحن نقدم خدمات تصميم مفصلة تشمل اختيار الألوان، توزيع الأثاث، والإضاءة لتلبية تطلعات عملائنا بالكامل.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-tools"></i>
+            <h3>المقاولات</h3>
+            <p>نعمل في مجال المقاولات بخبرة تمتد لأكثر من 10 سنوات، حيث نقدم مشاريع جاهزة وفقاً لأعلى معايير الجودة العالمية. فريقنا يضم نخبة من المهندسين المختصين في الأعمال المدنية، الكهربائية، والميكانيكية لضمان تقديم نتائج دقيقة وآمنة. نحن نلتزم بالمواعيد ونحرص على تسليم المشاريع وفقاً للجدول الزمني المتفق عليه مع العملاء.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-building"></i>
+            <h3>إدارة المشاريع</h3>
+            <p>تتميز خدمات إدارة المشاريع لدينا بالاحترافية والالتزام الكامل بجميع جوانب المشروع من البداية إلى النهاية. نقوم بتخطيط، تنفيذ، ومراقبة كل مرحلة من مراحل المشروع لضمان الجودة والفاعلية في التنفيذ. فريقنا المتخصص يعمل على تطوير الخطط الزمنية وتنسيق الموارد لضمان تسليم المشاريع في الوقت المحدد، مع الحفاظ على التكاليف في نطاق الميزانية المعتمدة.</p>
+        </div>
+    </div>
+</section>
+
+
+ <!-- صفحة طلب تصميم -->
+ <section id="request" class="request">
+    <h2>طلب تصميم</h2>
+    <form id="design-request-form">
+        <div class="form-group">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+            <small class="form-text">يرجى إدخال اسمك الكامل.</small> <!-- تلميح النصوص -->
+        </div>
+        
+        <div class="form-group">
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required placeholder="example@example.com">
+            <small class="form-text">يرجى إدخال بريد إلكتروني صحيح.</small> <!-- تلميح النصوص -->
+        </div>
+
+        <div class="form-group">
+            <label for="phone">رقم الهاتف:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="ادخل رقم هاتفك">
+            <small class="form-text">يرجى إدخال رقم هاتف صحيح.</small> <!-- تلميح النصوص -->
+        </div>
+        
+        <div class="form-group">
+            <label for="design-type">نوع التصميم:</label>
+            <select id="design-type" name="design-type">
+                <option value="residential">تصميم سكني</option>
+                <option value="commercial">تصميم تجاري</option>
+                <option value="office">تصميم مكتب</option>
+                <option value="villa">فيلا</option>
+                <option value="hotel">فندق</option>
+                <option value="gym">جيم</option>
+                <option value="car-showroom">معرض سيارات</option>
+                <option value="book-showroom">معرض كتاب</option>
+                <option value="studio">استديو</option>
+                <option value="playground">ملعب</option>
+                <option value="swimming-pool">حمام سباحه</option>
+                <option value="library">مكتبه</option>
+                <option value="school">مدرسه</option>
+                <option value="hospital">مستشفي</option>
+                <option value="restaurant">مطعم</option>
+                <option value="airport">مطار</option>
+                <option value="museum">متحف</option>
+                <option value="mosque">مسجد</option>
+                <option value="conference-hall">قاعه مؤتمرات</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="details">تفاصيل التصميم:</label>
+            <textarea id="details" name="details" required placeholder="أدخل تفاصيل التصميم هنا"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="file-upload">رفع ملفات:</label>
+            <input type="file" id="file-upload" name="file-upload" multiple>
+            <small class="form-text">يمكنك رفع ملفات متعددة (صور، مستندات، إلخ).</small> <!-- تلميح النصوص -->
+        </div>
+        
+        <div class="form-group">
+            <button type="submit">إرسال الطلب</button>
+        </div>
+        
+        <!-- رسالة نجاح / خطأ -->
+        <div id="form-response">
+            <p id="response-message"></p>
+        </div>
+    </form>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="contact-info">
+        <h3>معلومات الاتصال</h3>
+        <p><strong>العنوان:</strong> البنك الاهلى المصري فرع شبين القناطر - شارع بورسعيد، تقاطع شارع الدبيس، شبين القناطر، محافظة القليوبية</p>
+        <p><strong>الهاتف:</strong> 
+            <a href="https://wa.me/+20 1091418343" target="_blank">+201234567890</a>
+        </p>
+        <p><strong>البريد الإلكتروني:</strong> 
+            <a href="mailto:info@example.com">info@example.com</a>
+        </p>
+    </div>
+
+    <div class="map-container">
+        <!-- Google Maps Embed -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27554.857558689408!2d31.319848499999996!3d30.312356199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14580d867abbfcf1%3A0x995292aaa74638cc!2z2KfZhNio2YbZgyDYp9mE2KfZh9mE2Ykg2KfZhNmF2LXYsdmKINmB2LHYuSDYtNio2YrZhiDYp9mE2YLZhtin2LfYsSAtIE5CRSBTaGViaW4gRWwgUWFuYXRlciBCcmFuY2g!5e0!3m2!1sar!2seg!4v1725716060022!5m2!1sar!2seg"
+         width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="social-links">
+        <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
+        <a href="https://www.facebook.com/visionstudio92?mibextid=ZbWKwL" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/vision_studiio?t=Fi1LGhtBSLCX85fZi1l64Q&s=09" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/vision_studio92?igsh=MWR3bGR3YW1mam9pYw==" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>&copy; 2024 جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script src="script.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init();
+    
+    // Background transition logic
+    const backgrounds = ['#background1', '#background2', '#background3'];
+    let currentIndex = 0;
+
+    function showNextBackground() {
+        const nextIndex = (currentIndex + 1) % backgrounds.length;
+        document.querySelector(backgrounds[currentIndex]).style.opacity = '0';
+        document.querySelector(backgrounds[nextIndex]).style.opacity = '1';
+        currentIndex = nextIndex;
+    }
+
+    setInterval(showNextBackground, 5000); // Transition every 5 seconds
+    // مشاريعنا
+    
+  var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3, /* 3 ديفات على الشاشات الكبيرة */
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 2, /* 2 ديفات على الهواتف */
+        },
+        1024: {
+          slidesPerView: 3, /* 3 ديفات على الشاشات الكبيرة */
+        }
+      }
+  });
+  // طلب التصميم 
+
+   // تهيئة EmailJS
+   emailjs.init("YOUR_PUBLIC_KEY");
+
+document.getElementById('design-request-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then((response) => {
+            console.log('تم إرسال البريد الإلكتروني بنجاح!', response.status, response.text);
+            document.getElementById('form-response').style.display = 'block';
+            document.getElementById('response-message').innerText = 'تم إرسال الطلب بنجاح!';
+        }, (error) => {
+            console.error('فشل في إرسال البريد الإلكتروني.', error);
+            document.getElementById('form-response').style.display = 'block';
+            document.getElementById('response-message').innerText = 'فشل في إرسال الطلب، يرجى المحاولة مرة أخرى.';
+        });
+});
+</script>
+
+</script>
+</body>
+</html>
