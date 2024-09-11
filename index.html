@@ -189,7 +189,7 @@
             background-color: #333 !important;
         }
         /* مشريعنا*/
-        .section-title {
+          .section-title {
             text-align: center;
             margin: 20px 0;
             font-size: 2rem;
@@ -197,15 +197,15 @@
             letter-spacing: 2px;
         }
         .swiper-container {
-    width: 90%;
-    height: 300PX;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%; /* فراغ بنسبة 5% على الجانبين */
-    position: relative; /* مهم لضبط موقع النقاط بشكل صحيح */
-    overflow: hidden; /* لتجنب ظهور أي محتوى زائد */
-    margin-bottom: 50px; /* تأكيد المسافة بين السلايدر والعناصر التالية */
-}
+            width: 90%;
+            height: 300PX;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%; /* فراغ بنسبة 5% على الجانبين */
+            position: relative; /* مهم لضبط موقع النقاط بشكل صحيح */
+            overflow: hidden; /* لتجنب ظهور أي محتوى زائد */
+            margin-bottom: 50px; /* تأكيد المسافة بين السلايدر والعناصر التالية */
+        }
         .swiper-slide {
             background-color: #fff;
             border-radius: 10px;
@@ -219,7 +219,7 @@
         }
         .swiper-slide img {
             width: 100%;
-            height: 100%; /* تعديل الارتفاع هنا */
+            height: 100%;
             object-fit: cover;
         }
         .slide-title {
@@ -233,30 +233,29 @@
             font-size: 1.2rem;
             text-transform: uppercase;
         }
-       /* النمط الأساسي للنقاط */
-       .swiper-pagination {
-    position: relative; /* لتكون النقاط أسفل السلايدر */
-    bottom: 0; /* صفر لعدم وجود مسافة إضافية */
-    width: 100%;
-    text-align: center;
-    margin-top: 100px; /* المسافة بين النقاط والسلايدر */
-    z-index: 10; /* تأكيد ظهور النقاط فوق العناصر الأخرى */
-}
+        .swiper-pagination {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 100px;
+            z-index: 10;
+        }
 
-.swiper-pagination-bullet {
-    background-color: #999 !important; /* لون النقطة غير النشطة */
-    width: 12px; /* حجم النقطة */
-    height: 12px; /* حجم النقطة */
-    border-radius: 50%; /* جعل النقطة دائرية */
-    margin: 0 4px; /* المسافة بين النقاط */
-}
+        .swiper-pagination-bullet {
+            background-color: #999 !important;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
 
-.swiper-pagination-bullet-active {
-    background-color: #333 !important; /* لون النقطة النشطة */
-}  
-        /* إخفاء أزرار التنقل */
+        .swiper-pagination-bullet-active {
+            background-color: #333 !important;
+        }
+
         .swiper-button-next, .swiper-button-prev {
-            display: none; /* إخفاء أزرار التنقل */
+            display: none;
         }
 
    /* عن الشركه      */
@@ -821,8 +820,8 @@
     setInterval(showNextBackground, 5000); // Transition every 5 seconds
     // مشاريعنا
     
-  var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3, /* 3 ديفات على الشاشات الكبيرة */
+   var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3, /* 3 ديفات للتابلت والكمبيوتر */
       spaceBetween: 30,
       loop: true,
       pagination: {
@@ -830,11 +829,11 @@
         clickable: true,
       },
       breakpoints: {
-        480: {
-          slidesPerView: 2, /* 2 ديفات على الهواتف */
+        0: {
+          slidesPerView: 2, /* 2 ديفات للهاتف */
         },
-        1024: {
-          slidesPerView: 3, /* 3 ديفات على الشاشات الكبيرة */
+        768: {
+          slidesPerView: 3, /* 3 ديفات للتابلت والكمبيوتر */
         }
       }
   });
